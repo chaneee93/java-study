@@ -33,3 +33,10 @@ public class Calculator {
         sc.close();
     }
 }
+
+public static double safeDivide(int a, int b) {
+    if (b == 0) {
+        throw new IllegalArgumentException("0으로 나눌 수 없습니다");
+    }
+    return (double) a / b;
+}
