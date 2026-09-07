@@ -1,12 +1,16 @@
 public class Main {
-    public static void main(String[] args) {
-        parseScore("abc");
+    static class Res implements AutoCloseable {   // AutoCloseable = "자동으로 닫힐 수 있음"
+        private final String name;
+        Res(String name) { this.name = name; System.out.println(name + " 열림"); }
+        public void close() { System.out.println(name + " 닫힘"); }
     }
-    static int parseScore(String raw) {
-        try {
-            return Integer.parseInt(raw);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("점수 변환 실패: " + raw, e);  // e를 두 번째 인자로!
+
+    public static void main(String[] args) {
+        try (Res r = new Res("A")) {
+            System.out.println("블록 안");
+            throw new RuntimeException("일부러");   // 예외 던져도?
+        } catch (RuntimeException e) {
+            System.out.println("잡음");
         }
     }
 }
