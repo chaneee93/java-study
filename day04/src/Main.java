@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         Student a = new Student("가", 95);
-        Student b = new Student("나", 82);
-        Student c = new Student("다", 71);
+        System.out.println(a.getName() + " " + a.getScore() + " " + a.getGrade());
 
-        System.out.println(a.name + " " + a.getGrade());
-        System.out.println(b.name + " " + b.getGrade());
-        System.out.println(c.name + " " + c.getGrade());
+        a.setScore(88);              // 정상값 - 통과
+        System.out.println("변경 후: " + a.getScore());
+
+        a.setScore(-50);             // 이상한 값 - 여기서 막힘!
     }
 }
