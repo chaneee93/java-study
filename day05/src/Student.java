@@ -14,7 +14,7 @@ public class Student {
 
     public void setScore(int score) {
         if (score < 0 || score > 100) {
-            throw new IllegalArgumentException("점수는 0~100이어야 합니다. 입력값: " + score);
+            throw new ScoreOutOfRangeException(score);   // 내 예외 던지기
         }
         this.score = score;
     }
@@ -25,7 +25,5 @@ public class Student {
         return "C";
     }
 
-    public static int getCount() {
-        return count;
-    }
+    public static int getCount() { return count; }
 }
