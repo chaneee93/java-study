@@ -1,8 +1,13 @@
 public class Student {
-    String name;   // 필드 - 무엇을 갖는가
+    String name;
     int score;
 
-    String getGrade() {   // 메서드 - 무엇을 하는가
+    Student(String name, int score) {   // 생성자
+        this.name = name;
+        this.score = score;
+    }
+
+    String getGrade() {
         if (score >= 90) return "A";
         if (score >= 80) return "B";
         return "C";
