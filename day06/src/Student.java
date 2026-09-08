@@ -1,29 +1,18 @@
-public class Student {
-    private static int count = 0;
+public abstract class Student {   // abstract = 직접 못 만듦
     private String name;
     private int score;
 
-    Student(String name, int score) {
+    public Student(String name, int score) {
         this.name = name;
-        setScore(score);
-        count++;
+        this.score = score;
     }
 
     public String getName() { return name; }
     public int getScore() { return score; }
 
-    public void setScore(int score) {
-        if (score < 0 || score > 100) {
-            throw new ScoreOutOfRangeException(score);   // 내 예외 던지기
-        }
-        this.score = score;
-    }
+    public abstract String getGrade();   // 뼈대만! 몸통 없음 → 자식이 채워야
 
-    public String getGrade() {
-        if (score >= 90) return "A";
-        if (score >= 80) return "B";
-        return "C";
+    public String describe() {           // 공통 코드는 부모가 제공
+        return name + " " + getGrade();
     }
-
-    public static int getCount() { return count; }
 }
