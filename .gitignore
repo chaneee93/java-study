@@ -1,0 +1,9 @@
+# 컴파일 결과
+*.class
+
+# 실습 중 생기는 파일
+posts.txt
+
+# OS/에디터 잡파일
+.DS_Store
+.vscode/

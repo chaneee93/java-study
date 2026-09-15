@@ -11,7 +11,5 @@ public class Bank {
         System.out.println(a.owner + " " + a.balance);
         System.out.println(b.owner + " " + b.balance);
         System.out.println(a);
-                Account c = null;
-        System.out.println(c.owner);
     }
 }
